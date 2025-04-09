@@ -1,28 +1,30 @@
 import React from "react";
 import PreviewCard from "../components/PreviewCard";
 import { useParams } from "react-router-dom";
-import { data } from "../assets/data";
+import { products } from "../assets/data";
 
-const Preview = (props) => {
+const Preview = () => {
   const { id } = useParams();
-  const shoeId = Number(id);
+  const productId = Number(id);
 
-  const sneakers = data.sneakers;
+  const product = products.find(item => item.id === productId);
 
-  const filteredItems = sneakers.filter(
-    (s) => s.retail_price_cents !== null && s.story_html !== null
-  );
-
-  const qtyUpdate = filteredItems.map((item) => {
-    return { ...item, qty: 1 };
-  });
-
-  const items = qtyUpdate.filter((item) => item.id === shoeId);
-  const shoe = items[0];
+  if (!product) {
+    return (
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h1 className="text-2xl font-bold mb-4 dark:text-white">
+          Product Not Found
+        </h1>
+        <p className="text-gray-600 dark:text-gray-300">
+          The product you're looking for doesn't exist or has been removed.
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <div className="">
-      <PreviewCard shoe={shoe} />
+    <div className="min-h-screen bg-gray-50 dark:bg-[#121212]">
+      <PreviewCard product={product} />
     </div>
   );
 };
