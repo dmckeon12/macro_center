@@ -9,7 +9,7 @@ import Profile from "./pages/Profile";
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-[#121212]">
+    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-[#121212] relative">
       <Navbar />
       <main className="flex-grow">
         <Routes>
