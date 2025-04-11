@@ -110,8 +110,8 @@ const PCBuilder = () => {
       totalWattage += 65; // Estimate CPU wattage
       
       // Check CPU+Motherboard compatibility
-      if (build.motherboard && build.cpu.socket !== build.motherboard.socket) {
-        issues.push(`CPU socket (${build.cpu.socket}) is not compatible with motherboard socket (${build.motherboard.socket})`);
+      if (build.motherboard && build.cpu.specs?.socket !== build.motherboard.specs?.socket) {
+        issues.push(`CPU socket (${build.cpu.specs?.socket}) is not compatible with motherboard socket (${build.motherboard.specs?.socket})`);
       }
     }
     
@@ -353,22 +353,22 @@ const PCBuilder = () => {
                           <div className="mt-2 space-y-1">
                             {/* Show key specs based on category */}
                             {currentCategory === 'cpu' && (
-                              <p className="text-xs text-gray-600 dark:text-gray-400">Socket: {product.socket || 'N/A'}</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">Socket: {product.specs?.socket || 'N/A'}</p>
                             )}
                             {currentCategory === 'motherboard' && (
-                              <p className="text-xs text-gray-600 dark:text-gray-400">Form Factor: {product.form_factor || 'ATX'}</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">Form Factor: {product.specs?.form_factor || 'ATX'}</p>
                             )}
                             {currentCategory === 'gpu' && (
-                              <p className="text-xs text-gray-600 dark:text-gray-400">VRAM: {product.vram || '8GB'}</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">VRAM: {product.specs?.memory || '8GB'}</p>
                             )}
                             {currentCategory === 'ram' && (
-                              <p className="text-xs text-gray-600 dark:text-gray-400">Capacity: {product.capacity || '16GB'}</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">Capacity: {product.specs?.capacity || '16GB'}</p>
                             )}
                             {currentCategory === 'storage' && (
-                              <p className="text-xs text-gray-600 dark:text-gray-400">Type: {product.type || 'SSD'}</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">Type: {product.specs?.form_factor || 'SSD'}</p>
                             )}
                             {currentCategory === 'psu' && (
-                              <p className="text-xs text-gray-600 dark:text-gray-400">Wattage: {product.wattage || '650W'}</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">Wattage: {product.specs?.wattage || '650W'}</p>
                             )}
                           </div>
                         </div>

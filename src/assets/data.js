@@ -87,7 +87,7 @@ const data = {
     // CPU Components
     {
       id: 1,
-      category: "CPU",
+      category: "cpu",
       brand_name: "AMD",
       name: "Ryzen 9 7950X",
       details: "16-Core 32-Thread Desktop Processor",
@@ -107,7 +107,7 @@ const data = {
     },
     {
       id: 2,
-      category: "CPU",
+      category: "cpu",
       brand_name: "AMD",
       name: "Ryzen 7 7700X",
       details: "8-Core 16-Thread Desktop Processor",
@@ -127,7 +127,7 @@ const data = {
     },
     {
       id: 3,
-      category: "CPU",
+      category: "cpu",
       brand_name: "AMD",
       name: "Ryzen 5 5600X",
       details: "6-Core 12-Thread Desktop Processor",
@@ -147,7 +147,7 @@ const data = {
     },
     {
       id: 4,
-      category: "CPU",
+      category: "cpu",
       brand_name: "AMD",
       name: "Ryzen 7 5800X3D",
       details: "8-Core 16-Thread Desktop Processor with 3D V-Cache",
@@ -167,7 +167,7 @@ const data = {
     },
     {
       id: 5,
-      category: "CPU",
+      category: "cpu",
       brand_name: "Intel",
       name: "Core i9-13900K",
       details: "24-Core (8P+16E) 32-Thread Desktop Processor",
@@ -187,7 +187,7 @@ const data = {
     },
     {
       id: 6,
-      category: "CPU",
+      category: "cpu",
       brand_name: "Intel",
       name: "Core i7-12700K",
       details: "12-Core (8P+4E) 20-Thread Desktop Processor",
@@ -207,7 +207,7 @@ const data = {
     },
     {
       id: 7,
-      category: "CPU",
+      category: "cpu",
       brand_name: "Intel",
       name: "Core i5-12600K",
       details: "10-Core (6P+4E) 16-Thread Desktop Processor",
@@ -227,7 +227,7 @@ const data = {
     },
     {
       id: 8,
-      category: "CPU",
+      category: "cpu",
       brand_name: "Intel",
       name: "Core i5-12400F",
       details: "6-Core 12-Thread Desktop Processor",
@@ -247,7 +247,7 @@ const data = {
     },
     {
       id: 9,
-      category: "CPU",
+      category: "cpu",
       brand_name: "AMD",
       name: "Ryzen 9 7900X",
       details: "12-Core 24-Thread Desktop Processor",
@@ -267,7 +267,7 @@ const data = {
     },
     {
       id: 10,
-      category: "CPU",
+      category: "cpu",
       brand_name: "Intel",
       name: "Core i5-13600K",
       details: "14-Core (6P+8E) 20-Thread Desktop Processor",
@@ -289,7 +289,7 @@ const data = {
     // GPU Components
     {
       id: 11,
-      category: "GPU",
+      category: "gpu",
       brand_name: "NVIDIA",
       name: "GeForce RTX 4080",
       details: "16GB GDDR6X Graphics Card",
@@ -307,7 +307,7 @@ const data = {
     },
     {
       id: 12,
-      category: "GPU",
+      category: "gpu",
       brand_name: "NVIDIA",
       name: "GeForce RTX 4090",
       details: "24GB GDDR6X Graphics Card",
@@ -325,7 +325,7 @@ const data = {
     },
     {
       id: 13,
-      category: "GPU",
+      category: "gpu",
       brand_name: "NVIDIA",
       name: "GeForce RTX 4070 Ti",
       details: "12GB GDDR6X Graphics Card",
@@ -343,7 +343,7 @@ const data = {
     },
     {
       id: 14,
-      category: "GPU",
+      category: "gpu",
       brand_name: "NVIDIA",
       name: "GeForce RTX 4070",
       details: "12GB GDDR6X Graphics Card",
@@ -361,7 +361,7 @@ const data = {
     },
     {
       id: 15,
-      category: "GPU",
+      category: "gpu",
       brand_name: "NVIDIA",
       name: "GeForce RTX 4060 Ti",
       details: "8GB GDDR6 Graphics Card",
@@ -379,7 +379,7 @@ const data = {
     },
     {
       id: 16,
-      category: "GPU",
+      category: "gpu",
       brand_name: "AMD",
       name: "Radeon RX 7900 XTX",
       details: "24GB GDDR6 Graphics Card",
@@ -397,7 +397,7 @@ const data = {
     },
     {
       id: 17,
-      category: "GPU",
+      category: "gpu",
       brand_name: "AMD",
       name: "Radeon RX 7900 XT",
       details: "20GB GDDR6 Graphics Card",
@@ -415,7 +415,7 @@ const data = {
     },
     {
       id: 18,
-      category: "GPU",
+      category: "gpu",
       brand_name: "AMD",
       name: "Radeon RX 7800 XT",
       details: "16GB GDDR6 Graphics Card",
@@ -433,7 +433,7 @@ const data = {
     },
     {
       id: 19,
-      category: "GPU",
+      category: "gpu",
       brand_name: "AMD",
       name: "Radeon RX 7700 XT",
       details: "12GB GDDR6 Graphics Card",
@@ -451,7 +451,7 @@ const data = {
     },
     {
       id: 20,
-      category: "GPU",
+      category: "gpu",
       brand_name: "NVIDIA",
       name: "GeForce RTX 3090 Ti",
       details: "24GB GDDR6X Graphics Card",
@@ -471,7 +471,7 @@ const data = {
     // Motherboard Components
     {
       id: 21,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "ASUS",
       name: "ROG Strix X670E-E Gaming WiFi",
       details: "AM5 ATX Gaming Motherboard",
@@ -489,7 +489,7 @@ const data = {
     },
     {
       id: 22,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "MSI",
       name: "MPG Z790 EDGE WIFI",
       details: "LGA1700 ATX Gaming Motherboard",
@@ -507,7 +507,7 @@ const data = {
     },
     {
       id: 23,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "Gigabyte",
       name: "B650 AORUS ELITE AX",
       details: "AM5 ATX Motherboard",
@@ -525,7 +525,7 @@ const data = {
     },
     {
       id: 24,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "ASRock",
       name: "B760 Pro RS WiFi",
       details: "LGA1700 ATX Motherboard",
@@ -543,7 +543,7 @@ const data = {
     },
     {
       id: 25,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "MSI",
       name: "MAG B650M MORTAR WIFI",
       details: "AM5 Micro-ATX Motherboard",
@@ -561,7 +561,7 @@ const data = {
     },
     {
       id: 26,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "ASUS",
       name: "ROG STRIX Z690-A GAMING WIFI",
       details: "LGA1700 ATX Gaming Motherboard",
@@ -579,7 +579,7 @@ const data = {
     },
     {
       id: 27,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "Gigabyte",
       name: "B550 AORUS PRO",
       details: "AM4 ATX Motherboard",
@@ -597,7 +597,7 @@ const data = {
     },
     {
       id: 28,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "ASRock",
       name: "Z790M PG LIGHTNING",
       details: "LGA1700 Micro-ATX Motherboard",
@@ -615,7 +615,7 @@ const data = {
     },
     {
       id: 29,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "MSI",
       name: "PRO Z690-A DDR4",
       details: "LGA1700 ATX Motherboard",
@@ -633,7 +633,7 @@ const data = {
     },
     {
       id: 30,
-      category: "Motherboard",
+      category: "motherboard",
       brand_name: "Gigabyte",
       name: "X670 AORUS MASTER",
       details: "AM5 E-ATX Motherboard",
@@ -653,7 +653,7 @@ const data = {
     // RAM Components
     {
       id: 31,
-      category: "RAM",
+      category: "ram",
       brand_name: "Corsair",
       name: "Vengeance RGB Pro",
       details: "32GB (2x16GB) DDR4-3600",
@@ -672,7 +672,7 @@ const data = {
     },
     {
       id: 32,
-      category: "RAM",
+      category: "ram",
       brand_name: "G.Skill",
       name: "Trident Z RGB",
       details: "32GB (2x16GB) DDR4-3200",
@@ -691,7 +691,7 @@ const data = {
     },
     {
       id: 33,
-      category: "RAM",
+      category: "ram",
       brand_name: "Kingston",
       name: "FURY Beast DDR5",
       details: "32GB (2x16GB) DDR5-6000",
@@ -710,7 +710,7 @@ const data = {
     },
     {
       id: 34,
-      category: "RAM",
+      category: "ram",
       brand_name: "Crucial",
       name: "Ballistix RGB",
       details: "16GB (2x8GB) DDR4-3600",
@@ -729,7 +729,7 @@ const data = {
     },
     {
       id: 35,
-      category: "RAM",
+      category: "ram",
       brand_name: "Team Group",
       name: "Elite Plus",
       details: "16GB (2x8GB) DDR4-3200",
@@ -748,7 +748,7 @@ const data = {
     },
     {
       id: 36,
-      category: "RAM",
+      category: "ram",
       brand_name: "Corsair",
       name: "Dominator Platinum RGB",
       details: "32GB (2x16GB) DDR5-5600",
@@ -767,7 +767,7 @@ const data = {
     },
     {
       id: 37,
-      category: "RAM",
+      category: "ram",
       brand_name: "G.Skill",
       name: "Ripjaws V",
       details: "32GB (2x16GB) DDR4-3600",
@@ -786,7 +786,7 @@ const data = {
     },
     {
       id: 38,
-      category: "RAM",
+      category: "ram",
       brand_name: "Team Group",
       name: "T-Force Delta RGB",
       details: "32GB (2x16GB) DDR4-3200",
@@ -805,7 +805,7 @@ const data = {
     },
     {
       id: 39,
-      category: "RAM",
+      category: "ram",
       brand_name: "ADATA",
       name: "XPG SPECTRIX D45G",
       details: "16GB (2x8GB) DDR4-3600",
@@ -824,7 +824,7 @@ const data = {
     },
     {
       id: 40,
-      category: "RAM",
+      category: "ram",
       brand_name: "Patriot",
       name: "Viper Steel",
       details: "32GB (2x16GB) DDR4-3200",
@@ -845,7 +845,7 @@ const data = {
     // Storage Components
     {
       id: 41,
-      category: "Storage",
+      category: "storage",
       brand_name: "Samsung",
       name: "980 PRO",
       details: "1TB NVMe PCIe 4.0 SSD",
@@ -864,7 +864,7 @@ const data = {
     },
     {
       id: 42,
-      category: "Storage",
+      category: "storage",
       brand_name: "Western Digital",
       name: "WD_BLACK SN850X",
       details: "2TB NVMe PCIe 4.0 SSD",
@@ -883,7 +883,7 @@ const data = {
     },
     {
       id: 43,
-      category: "Storage",
+      category: "storage",
       brand_name: "Crucial",
       name: "P5 Plus",
       details: "1TB NVMe PCIe 4.0 SSD",
@@ -902,7 +902,7 @@ const data = {
     },
     {
       id: 44,
-      category: "Storage",
+      category: "storage",
       brand_name: "Sabrent",
       name: "Rocket 4 Plus",
       details: "2TB NVMe PCIe 4.0 SSD",
@@ -921,7 +921,7 @@ const data = {
     },
     {
       id: 45,
-      category: "Storage",
+      category: "storage",
       brand_name: "Seagate",
       name: "BarraCuda",
       details: "2TB 7200RPM HDD",
@@ -940,7 +940,7 @@ const data = {
     },
     {
       id: 46,
-      category: "Storage",
+      category: "storage",
       brand_name: "Samsung",
       name: "870 EVO",
       details: "1TB SATA SSD",
@@ -959,7 +959,7 @@ const data = {
     },
     {
       id: 47,
-      category: "Storage",
+      category: "storage",
       brand_name: "Western Digital",
       name: "WD Blue",
       details: "4TB 5400RPM HDD",
@@ -978,7 +978,7 @@ const data = {
     },
     {
       id: 48,
-      category: "Storage",
+      category: "storage",
       brand_name: "Kingston",
       name: "NV2",
       details: "1TB NVMe PCIe 4.0 SSD",
@@ -997,7 +997,7 @@ const data = {
     },
     {
       id: 49,
-      category: "Storage",
+      category: "storage",
       brand_name: "Intel",
       name: "Optane 905P",
       details: "480GB PCIe 3.0 SSD",
@@ -1016,7 +1016,7 @@ const data = {
     },
     {
       id: 50,
-      category: "Storage",
+      category: "storage",
       brand_name: "Seagate",
       name: "FireCuda 530",
       details: "2TB NVMe PCIe 4.0 SSD with Heatsink",
@@ -1037,7 +1037,7 @@ const data = {
     // Power Supply Components
     {
       id: 51,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "Corsair",
       name: "RM850x",
       details: "850W 80+ Gold Fully Modular",
@@ -1056,7 +1056,7 @@ const data = {
     },
     {
       id: 52,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "EVGA",
       name: "SuperNOVA 1000 G6",
       details: "1000W 80+ Gold Fully Modular",
@@ -1075,7 +1075,7 @@ const data = {
     },
     {
       id: 53,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "Seasonic",
       name: "FOCUS GX-750",
       details: "750W 80+ Gold Fully Modular",
@@ -1094,7 +1094,7 @@ const data = {
     },
     {
       id: 54,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "Thermaltake",
       name: "Toughpower GF1 850W",
       details: "850W 80+ Gold Fully Modular",
@@ -1113,7 +1113,7 @@ const data = {
     },
     {
       id: 55,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "be quiet!",
       name: "Straight Power 11 750W",
       details: "750W 80+ Platinum Fully Modular",
@@ -1132,7 +1132,7 @@ const data = {
     },
     {
       id: 56,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "MSI",
       name: "MPG A850GF",
       details: "850W 80+ Gold Fully Modular",
@@ -1151,7 +1151,7 @@ const data = {
     },
     {
       id: 57,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "Corsair",
       name: "CX650",
       details: "650W 80+ Bronze Semi-Modular",
@@ -1170,7 +1170,7 @@ const data = {
     },
     {
       id: 58,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "EVGA",
       name: "600 BQ",
       details: "600W 80+ Bronze Semi-Modular",
@@ -1189,7 +1189,7 @@ const data = {
     },
     {
       id: 59,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "Phanteks",
       name: "AMP 750W",
       details: "750W 80+ Gold Fully Modular",
@@ -1208,7 +1208,7 @@ const data = {
     },
     {
       id: 60,
-      category: "Power Supply",
+      category: "psu",
       brand_name: "Seasonic",
       name: "PRIME TX-1000",
       details: "1000W 80+ Titanium Fully Modular",
