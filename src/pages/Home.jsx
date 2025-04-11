@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
-import { data } from "../assets/data";
+import { data, heroBanner } from "../assets/data";
 import { BiChip, BiMemoryCard, BiDesktop } from "react-icons/bi";
 import { BsMotherboard, BsLightningCharge } from "react-icons/bs";
 import { CgSmartphoneRam } from "react-icons/cg";
@@ -21,20 +21,27 @@ const Home = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 mb-12 text-white">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold mb-4">Build Your Dream PC</h1>
-          <p className="text-lg mb-6">
-            High-performance computer parts at competitive prices. From CPUs to GPUs, we've got everything you need.
-          </p>
-          <Link
-            to="/build"
+      <div className="relative rounded-2xl overflow-hidden mb-12 text-white">
+        <img 
+          src={heroBanner} 
+          alt="Hero Banner" 
+          className="w-full h-[400px] object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center">
+          <div className="max-w-2xl mx-8">
+            <h1 className="text-4xl font-bold mb-4">Build Your Dream PC</h1>
+            <p className="text-lg mb-6">
+              High-performance computer parts at competitive prices. From CPUs to GPUs, we've got everything you need.
+            </p>
+            <Link
+              to="/build"
             className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
           >
             Start Building →
           </Link>
         </div>
       </div>
+    </div>
 
       {/* Categories Section */}
       <section className="mb-12">
@@ -94,7 +101,7 @@ const Home = () => {
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {products.slice(0, 3).map((product) => (
+            {featuredProducts.slice(0, 3).map((product) => (
               <div
                 key={product.id}
                 className="bg-white dark:bg-[#1f1b24] p-4 rounded-xl shadow-sm"

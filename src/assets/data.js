@@ -1,3 +1,10 @@
+// Import images
+import logo from './images/logo.png';
+import heroBanner from './images/hero-banner.jpg';
+import ryzen7950x from './images/cpu-ryzen-7950x.jpg';
+import rtx4080 from './images/gpu-rtx-4080.jpg';
+import rogX670e from './images/mb-rog-x670e.jpg';
+
 export const data = {
   healthcheck: {
     message: "OK",
@@ -20,7 +27,7 @@ export const data = {
         socket: "AM5"
       },
       stock: true,
-      main_picture_url: "https://example.com/ryzen-7950x.jpg",
+      main_picture_url: ryzen7950x,
       description: "AMD's flagship desktop processor featuring 16 cores and 32 threads for exceptional multi-tasking and gaming performance."
     },
     {
@@ -38,7 +45,7 @@ export const data = {
         tdp: "320W"
       },
       stock: true,
-      main_picture_url: "https://example.com/rtx-4080.jpg",
+      main_picture_url: rtx4080,
       description: "High-end graphics card featuring NVIDIA's Ada Lovelace architecture for exceptional gaming and creative workloads."
     },
     {
@@ -56,7 +63,7 @@ export const data = {
         pcie_version: "PCIe 5.0"
       },
       stock: true,
-      main_picture_url: "https://example.com/rog-x670e.jpg",
+      main_picture_url: rogX670e,
       description: "High-end AM5 motherboard with PCIe 5.0, DDR5 support, and premium gaming features."
     }
   ]

@@ -19,8 +19,3 @@ store.subscribe(() => {
   const state = store.getState();
   localStorage.setItem("localCart", JSON.stringify(state.cart));
 });
-
-    store.dispatch(setCartFromLocalStorage(parsedCart));
-  }
-};
-loadCartFromLocalStorage();
