@@ -14,7 +14,13 @@ const Cart = () => {
   
   useEffect(() => {
     setTotal(
-      cart.reduce((acc, curr) => acc + curr.price_cents * curr.qty, 0)
+      cart.reduce((acc, curr) => {
+        // Ensure price_cents is a valid number
+        const price = typeof curr.price_cents === 'number' ? curr.price_cents : 0;
+        // Ensure qty is a valid number
+        const qty = typeof curr.qty === 'number' ? curr.qty : 1;
+        return acc + (price * qty);
+      }, 0)
     );
   }, [cart]);
 
@@ -73,7 +79,7 @@ const Cart = () => {
             <div className="space-y-3 mb-6">
               <div className="flex justify-between text-gray-600 dark:text-gray-300">
                 <span>Items ({cart.length})</span>
-                <span>${(total / 100).toLocaleString()}</span>
+                <span>${((total || 0) / 100).toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-600 dark:text-gray-300">
                 <span>Shipping</span>
@@ -81,7 +87,7 @@ const Cart = () => {
               </div>
               <div className="border-t pt-3 flex justify-between font-semibold dark:text-white">
                 <span>Total</span>
-                <span>${(total / 100).toLocaleString()}</span>
+                <span>${((total || 0) / 100).toFixed(2)}</span>
               </div>
             </div>
 

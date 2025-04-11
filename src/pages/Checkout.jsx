@@ -10,7 +10,7 @@ const Checkout = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { currentUser } = useAuth();
+  const { currentUser, addOrder } = useAuth();
   
   const [total, setTotal] = useState(0);
   const [formData, setFormData] = useState({
@@ -30,9 +30,15 @@ const Checkout = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   useEffect(() => {
-    // Calculate total price
+    // Calculate total price with safety checks for price_cents
     setTotal(
-      cart.reduce((acc, curr) => acc + curr.price_cents * curr.qty, 0)
+      cart.reduce((acc, curr) => {
+        // Ensure price_cents is a valid number
+        const price = typeof curr.price_cents === 'number' ? curr.price_cents : 0;
+        // Ensure qty is a valid number
+        const qty = typeof curr.qty === 'number' ? curr.qty : 1;
+        return acc + (price * qty);
+      }, 0)
     );
     
     // Redirect if cart is empty
@@ -99,14 +105,14 @@ const Checkout = () => {
       setIsSubmitting(true);
       
       // Create order data
-      const orderTotal = total + (total * 0.07); // Include tax
+      const orderTotal = (total || 0) + ((total || 0) * 0.07); // Include tax
       const orderId = uuidv4().substring(0, 8).toUpperCase();
       const orderDate = new Date().toISOString();
       
       const orderData = {
         id: orderId,
         date: new Date().toLocaleDateString(),
-        total: (orderTotal / 100).toLocaleString(),
+        total: (orderTotal / 100).toFixed(2),
         status: 'Processing',
         items: cart.map(item => ({
           id: item.id,
@@ -191,7 +197,7 @@ const Checkout = () => {
                 
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600 dark:text-gray-300">Subtotal</span>
-                  <span className="dark:text-white">${(total / 100).toLocaleString()}</span>
+                  <span className="dark:text-white">${((total || 0) / 100).toFixed(2)}</span>
                 </div>
                 
                 <div className="flex justify-between text-sm">
@@ -201,13 +207,13 @@ const Checkout = () => {
                 
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600 dark:text-gray-300">Tax</span>
-                  <span className="dark:text-white">${((total * 0.07) / 100).toLocaleString()}</span>
+                  <span className="dark:text-white">${(((total || 0) * 0.07) / 100).toFixed(2)}</span>
                 </div>
                 
                 <div className="border-t pt-4 flex justify-between font-semibold">
                   <span className="dark:text-white">Total</span>
                   <span className="dark:text-white">
-                    ${((total + (total * 0.07)) / 100).toLocaleString()}
+                    ${(((total || 0) + ((total || 0) * 0.07)) / 100).toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -389,7 +395,7 @@ const Checkout = () => {
                     disabled={isSubmitting}
                     className={`w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                   >
-                    {isSubmitting ? 'Processing...' : `Place Order - $${((total + (total * 0.07)) / 100).toLocaleString()}`}
+                    {isSubmitting ? 'Processing...' : `Place Order - $${(((total || 0) + ((total || 0) * 0.07)) / 100).toFixed(2)}`}
                   </button>
                 </div>
               </form>
