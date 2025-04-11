@@ -35,13 +35,13 @@ const Home = () => {
             </p>
             <Link
               to="/build"
-            className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-          >
-            Start Building →
-          </Link>
+              className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+            >
+              Start Building →
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
 
       {/* Categories Section */}
       <section className="mb-12">
@@ -64,7 +64,6 @@ const Home = () => {
           })}
         </div>
       </section>
-
       {/* Featured Products */}
       <section className="mb-12">
         <div className="flex justify-between items-center mb-6">

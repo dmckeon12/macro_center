@@ -27,7 +27,7 @@ const Card = ({ product }) => {
 
   return (
     <div>
-      <div className="w-[300px] h-[450px] shadow-sm rounded-2xl p-4 bg-slate-50 dark:bg-[#1f1b24] dark:hover:bg-[#121015] dark:text-white dark:outline-none dark:border-none border border-slate-100 outline outline-slate-100 hover:shadow-2xl relative">
+      <div className="w-full max-w-sm h-[450px] shadow-sm rounded-2xl p-4 bg-slate-50 dark:bg-[#1f1b24] dark:hover:bg-[#121015] dark:text-white dark:outline-none dark:border-none border border-slate-100 outline outline-slate-100 hover:shadow-2xl relative">
         <div className="flex flex-col gap-4">
           <div>
             <img
@@ -68,7 +68,7 @@ const Card = ({ product }) => {
                 Add to Cart
               </button>
             )}
-            <span className="text-xl font-semibold">₹{(price / 100).toLocaleString()}</span>
+            <span className="text-xl font-semibold">${(price / 100).toLocaleString()}</span>
           </div>
         </div>
       </div>
