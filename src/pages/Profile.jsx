@@ -1,32 +1,28 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { useAuth } from '../contexts/AuthContext';
+import toast from 'react-hot-toast';
 
 const Profile = () => {
   const navigate = useNavigate();
-  // Mock user data - in a real app, this would come from your auth system
+  const { currentUser, logout } = useAuth();
+  
+  // If no user found, redirect to login (should be handled by ProtectedRoute, but just in case)
+  if (!currentUser) {
+    navigate('/login');
+    return null;
+  }
+  
+  // Provide some default orders if none exist
   const user = {
-    name: 'John Doe',
-    email: 'john@example.com',
-    joinDate: '2024',
-    orders: [
-      {
-        id: '1',
-        date: '2024-04-01',
-        total: 599.99,
-        status: 'Delivered'
-      },
-      {
-        id: '2',
-        date: '2024-03-15',
-        total: 299.99,
-        status: 'Processing'
-      }
-    ]
+    ...currentUser,
+    orders: currentUser.orders || []
   };
 
   const handleLogout = () => {
-    // TODO: Implement actual logout logic
+    logout();
+    toast.success('Successfully logged out');
     navigate('/login');
   };
 

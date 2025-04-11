@@ -6,6 +6,7 @@ import { Cart, CategoryPage, Deals, Explore, Home, PCBuilder, Preview } from "./
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   useEffect(() => {
@@ -23,14 +24,14 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
             <Route path="/preview/:id" element={<Preview />} />
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/build" element={<PCBuilder />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           </Routes>
         </main>
         <Footer />
