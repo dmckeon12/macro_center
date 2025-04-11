@@ -34,10 +34,10 @@ const Deals = () => {
               <Card product={product} />
               <div className="mt-2 text-center">
                 <span className="text-gray-500 dark:text-gray-400 line-through mr-2">
-                  ${(product.original_price / 100).toLocaleString()}
+                  ${((product.original_price || 0) / 100).toFixed(2)}
                 </span>
                 <span className="text-red-600 dark:text-red-400 font-semibold">
-                  ${(product.price_cents / 100).toLocaleString()}
+                  ${((product.price_cents || 0) / 100).toFixed(2)}
                 </span>
               </div>
             </div>

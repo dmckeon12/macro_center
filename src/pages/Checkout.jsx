@@ -189,7 +189,7 @@ const Checkout = () => {
                         <p className="text-xs text-gray-500 dark:text-gray-400">Qty: {item.qty}</p>
                       </div>
                       <div className="text-sm font-medium dark:text-white">
-                        ${((item.price_cents * item.qty) / 100).toLocaleString()}
+                        ${(((item.price_cents || 0) * (item.qty || 1)) / 100).toFixed(2)}
                       </div>
                     </div>
                   ))}
