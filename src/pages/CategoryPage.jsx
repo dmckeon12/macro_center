@@ -120,10 +120,10 @@ const CategoryPage = () => {
               className="w-full p-2 border rounded dark:bg-[#2a2a2a] dark:border-gray-700 dark:text-white"
             >
               <option value="all">All Prices</option>
-              <option value="0-100">Under ₹10,000</option>
-              <option value="100-300">₹10,000 - ₹30,000</option>
-              <option value="300-500">₹30,000 - ₹50,000</option>
-              <option value="500">Over ₹50,000</option>
+              <option value="0-100">Under $100</option>
+              <option value="100-300">$100 - $300</option>
+              <option value="300-500">$300 - $500</option>
+              <option value="500">Over $500</option>
             </select>
           </div>
         </div>

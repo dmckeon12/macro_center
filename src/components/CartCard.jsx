@@ -51,7 +51,7 @@ const CartCard = ({ item }) => {
 
               <div className="flex justify-between items-center mt-4">
                 <div className="text-xl font-bold">
-                  ₹{(item.price_cents / 100).toLocaleString()}
+                  ${(item.price_cents / 100).toLocaleString()}
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center">

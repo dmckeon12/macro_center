@@ -76,7 +76,7 @@ const PreviewCard = ({ product }) => {
                   {name}
                 </h3>
                 <h3 className="text-2xl font-semibold mb-4 text-black dark:text-white">
-                  ₹{(price / 100).toLocaleString()}
+                  ${(price / 100).toLocaleString()}
                 </h3>
               </div>
 

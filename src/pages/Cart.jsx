@@ -72,7 +72,7 @@ const Cart = () => {
             <div className="space-y-3 mb-6">
               <div className="flex justify-between text-gray-600 dark:text-gray-300">
                 <span>Items ({cart.length})</span>
-                <span>₹{(total / 100).toLocaleString()}</span>
+                <span>${(total / 100).toLocaleString()}</span>
               </div>
               <div className="flex justify-between text-gray-600 dark:text-gray-300">
                 <span>Shipping</span>
@@ -80,7 +80,7 @@ const Cart = () => {
               </div>
               <div className="border-t pt-3 flex justify-between font-semibold dark:text-white">
                 <span>Total</span>
-                <span>₹{(total / 100).toLocaleString()}</span>
+                <span>${(total / 100).toLocaleString()}</span>
               </div>
             </div>
 

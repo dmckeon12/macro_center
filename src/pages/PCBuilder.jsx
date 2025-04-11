@@ -251,7 +251,7 @@ const PCBuilder = () => {
                       <div>
                         <h3 className="font-medium dark:text-white">{selectedPart.name}</h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                          ₹{(selectedPart.price_cents / 100).toLocaleString()}
+                          ${(selectedPart.price_cents / 100).toLocaleString()}
                         </p>
                       </div>
                     </div>
@@ -280,7 +280,7 @@ const PCBuilder = () => {
                     {categories[category].name}
                   </span>
                   <span className="dark:text-white">
-                    {part ? `₹${(part.price_cents / 100).toLocaleString()}` : "—"}
+                    {part ? `$${(part.price_cents / 100).toLocaleString()}` : "—"}
                   </span>
                 </div>
               ))}
@@ -288,7 +288,7 @@ const PCBuilder = () => {
               <div className="border-t pt-4 flex justify-between font-semibold">
                 <span className="dark:text-white">Total</span>
                 <span className="dark:text-white">
-                  ₹{(calculateTotal() / 100).toLocaleString()}
+                  ${(calculateTotal() / 100).toLocaleString()}
                 </span>
               </div>
             </div>
@@ -337,7 +337,7 @@ const PCBuilder = () => {
                         </div>
                         <div className="flex-1">
                           <h3 className="font-medium mb-2 line-clamp-2 dark:text-white">{product.name}</h3>
-                          <p className="text-green-600 font-semibold">₹{(product.price_cents / 100).toLocaleString()}</p>
+                          <p className="text-green-600 font-semibold">${(product.price_cents / 100).toLocaleString()}</p>
                           
                           <div className="mt-2 space-y-1">
                             {/* Show key specs based on category */}
