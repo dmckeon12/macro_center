@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 
 const App = () => {
   useEffect(() => {
+    console.log("App component mounted"); // Log when App component mounts
     // Add dark mode class if it's saved in localStorage
     if (localStorage.getItem('darkMode') === 'true') {
       document.documentElement.classList.add('dark');
