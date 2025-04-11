@@ -88,12 +88,39 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Add an order to the user's order history
+  const addOrder = (orderData) => {
+    try {
+      if (!currentUser) {
+        throw new Error('User not logged in');
+      }
+
+      // Add the new order to the user's orders
+      const updatedUser = {
+        ...currentUser,
+        orders: [...(currentUser.orders || []), orderData]
+      };
+
+      // Update localStorage
+      localStorage.setItem('macroUser', JSON.stringify(updatedUser));
+      
+      // Update current user state
+      setCurrentUser(updatedUser);
+      
+      return updatedUser;
+    } catch (error) {
+      console.error('Error adding order:', error);
+      throw new Error('Failed to add order');
+    }
+  };
+
   const value = {
     currentUser,
     login,
     register,
     logout,
-    loading
+    loading,
+    addOrder
   };
 
   return (

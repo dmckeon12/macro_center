@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { checkoutCart } from "../redux/slices/CartSlice";
 import { useAuth } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
+import { v4 as uuidv4 } from 'uuid';
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
@@ -97,8 +98,44 @@ const Checkout = () => {
     if (Object.keys(errors).length === 0) {
       setIsSubmitting(true);
       
-      // Simulate order processing
-      setTimeout(() => {
+      // Create order data
+      const orderTotal = total + (total * 0.07); // Include tax
+      const orderId = uuidv4().substring(0, 8).toUpperCase();
+      const orderDate = new Date().toISOString();
+      
+      const orderData = {
+        id: orderId,
+        date: new Date().toLocaleDateString(),
+        total: (orderTotal / 100).toLocaleString(),
+        status: 'Processing',
+        items: cart.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: item.price_cents,
+          quantity: item.qty,
+          image: item.main_picture_url
+        })),
+        shippingAddress: {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          address: formData.address,
+          city: formData.city,
+          state: formData.state,
+          zipCode: formData.zipCode
+        },
+        paymentInfo: {
+          cardName: formData.cardName,
+          cardNumber: formData.cardNumber.replace(/\d(?=\d{4})/g, "*"), // Mask card number
+          expiration: formData.expiration
+        },
+        orderDate: orderDate
+      };
+      
+      // Save order to user profile
+      try {
+        // Add the order to the user's profile
+        addOrder(orderData);
+        
         // Clear cart
         dispatch(checkoutCart());
         localStorage.removeItem("localCart");
@@ -106,11 +143,14 @@ const Checkout = () => {
         // Show success message
         toast.success("Order placed successfully! Thank you for your purchase.");
         
-        // Redirect to order confirmation
-        navigate("/order-confirmation");
-        
+        // Redirect to order confirmation with order ID
+        navigate("/order-confirmation", { state: { orderId } });
+      } catch (error) {
+        toast.error("Error saving your order. Please try again.");
+        console.error("Order error:", error);
+      } finally {
         setIsSubmitting(false);
-      }, 1500);
+      }
     } else {
       toast.error("Please fix the errors in the form");
     }
