@@ -19,24 +19,44 @@ const AuthForms = ({ type = 'login' }) => {
     e.preventDefault();
     setError('');
     
+    console.log('Form submitted with data:', formData);
+    
     // Validation
-    if (type === 'register' && formData.password !== formData.confirmPassword) {
-      return setError('Passwords do not match');
+    if (type === 'register') {
+      if (!formData.name || formData.name.trim() === '') {
+        setError('Please enter your name');
+        return;
+      }
+      
+      if (formData.password !== formData.confirmPassword) {
+        setError('Passwords do not match');
+        return;
+      }
+      
+      if (formData.password.length < 6) {
+        setError('Password must be at least 6 characters');
+        return;
+      }
     }
     
     try {
       setLoading(true);
       
       if (type === 'login') {
+        // Login handling
+        console.log('Attempting login with:', formData.email, formData.password);
         await login(formData.email, formData.password);
         toast.success('Successfully logged in!');
+        navigate('/profile');
       } else {
+        // Registration handling
+        console.log('Attempting registration with:', formData.email, formData.password, formData.name);
         await register(formData.email, formData.password, formData.name);
         toast.success('Account created successfully!');
+        navigate('/profile');
       }
-      
-      navigate('/profile');
     } catch (err) {
+      console.error('Auth error:', err);
       setError(err.message);
       toast.error(err.message);
     } finally {
