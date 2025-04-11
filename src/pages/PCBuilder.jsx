@@ -5,6 +5,7 @@ import { BiChip, BiMemoryCard, BiDesktop, BiSelectMultiple } from "react-icons/b
 import { BsMotherboard, BsLightningCharge } from "react-icons/bs";
 import { CgSmartphoneRam } from "react-icons/cg";
 import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/slices/CartSlice";
 import toast from 'react-hot-toast';
 
 const PCBuilder = () => {
@@ -145,9 +146,11 @@ const PCBuilder = () => {
   const addAllToCart = () => {
     const parts = Object.values(build).filter(item => item);
     
-    // Add each part to the cart
+    // Add each part to the cart with quantity property
     parts.forEach(part => {
-      dispatch({ type: 'ADD_TO_CART', payload: part });
+      // Add qty property required by cart
+      const itemWithQty = { ...part, qty: 1 };
+      dispatch(addToCart(itemWithQty));
     });
     
     toast.success(`${parts.length} items added to cart`);
