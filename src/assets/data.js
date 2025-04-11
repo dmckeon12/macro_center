@@ -5,10 +5,10 @@ import ryzen7950x from './images/cpu-ryzen-7950x.jpg';
 import rtx4080 from './images/gpu-rtx-4080.jpg';
 import rogX670e from './images/mb-rog-x670e.jpg';
 
-// Export images
-export { logo, heroBanner };
-
-export const data = {
+// Export images and make them accessible from data object
+const data = {
+  logo,
+  heroBanner,
   healthcheck: {
     message: "OK",
   },
@@ -70,4 +70,6 @@ export const data = {
       description: "High-end AM5 motherboard with PCIe 5.0, DDR5 support, and premium gaming features."
     }
   ]
-}
+};
+
+export default data;
