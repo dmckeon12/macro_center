@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
-import { data, heroBanner } from "../assets/data";
+import data from "../assets/data"; // Fixing import statement
 import { BiChip, BiMemoryCard, BiDesktop } from "react-icons/bi";
 import { BsMotherboard, BsLightningCharge } from "react-icons/bs";
 import { CgSmartphoneRam } from "react-icons/cg";
@@ -16,14 +16,14 @@ const Home = () => {
     { name: "Power Supplies", icon: BsLightningCharge, path: "/category/psu" },
   ];
 
-  const featuredProducts = data.products;
+  const featuredProducts = data.products; // Accessing products from data
 
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
       <div className="relative rounded-2xl overflow-hidden mb-12 text-white">
         <img 
-          src={heroBanner} 
+          src={data.heroBanner} // Accessing heroBanner from data
           alt="Hero Banner" 
           className="w-full h-[400px] object-cover"
         />
