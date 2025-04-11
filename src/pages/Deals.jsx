@@ -4,12 +4,42 @@ import data from "../assets/data";
 
 const Deals = () => {
   // Simulate deals by adding a random discount to each product
-  const dealsProducts = data.products.map(product => ({
-    ...product,
-    original_price: product.price_cents,
-    price_cents: Math.floor(product.price_cents * (1 - Math.random() * 0.3)), // Up to 30% off
-    discount_percentage: Math.floor(Math.random() * 30)
-  })).sort((a, b) => b.discount_percentage - a.discount_percentage);
+  const productsWithDiscounts = data.products.map(product => {
+    // Generate a random discount between 5% and 30%
+    const discountPercentage = Math.floor(Math.random() * 26) + 5; // 5 to 30%
+    return {
+      ...product,
+      original_price: product.price_cents,
+      price_cents: Math.floor(product.price_cents * (1 - discountPercentage / 100)),
+      discount_percentage: discountPercentage
+    };
+  });
+  
+  // Group products by category
+  const productsByCategory = {};
+  
+  productsWithDiscounts.forEach(product => {
+    const category = product.category;
+    if (!productsByCategory[category]) {
+      productsByCategory[category] = [];
+    }
+    productsByCategory[category].push(product);
+  });
+  
+  // Get top 2 deals from each category
+  const dealsProducts = [];
+  
+  Object.keys(productsByCategory).forEach(category => {
+    // Sort by discount percentage (highest first)
+    const sortedCategoryProducts = productsByCategory[category]
+      .sort((a, b) => b.discount_percentage - a.discount_percentage)
+      .slice(0, 2); // Take only the top 2
+    
+    dealsProducts.push(...sortedCategoryProducts);
+  });
+  
+  // Sort all deals by discount percentage for display
+  dealsProducts.sort((a, b) => b.discount_percentage - a.discount_percentage);
 
   return (
     <div className="container mx-auto px-4 py-8">
