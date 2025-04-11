@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { products } from "../assets/data";
+import data from "../assets/data";
 import { BiChip, BiMemoryCard, BiDesktop } from "react-icons/bi";
 import { BsMotherboard, BsLightningCharge } from "react-icons/bs";
 import { CgSmartphoneRam } from "react-icons/cg";

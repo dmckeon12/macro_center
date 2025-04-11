@@ -1,13 +1,13 @@
 import React from "react";
 import PreviewCard from "../components/PreviewCard";
 import { useParams } from "react-router-dom";
-import { products } from "../assets/data";
+import data from "../assets/data";
 
 const Preview = () => {
   const { id } = useParams();
   const productId = Number(id);
 
-  const product = products.find(item => item.id === productId);
+  const product = data.products.find(item => item.id === productId);
 
   if (!product) {
     return (

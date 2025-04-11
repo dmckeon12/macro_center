@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../components/Card";
-import { data } from "../assets/data";
+import data from "../assets/data";
 
 const Explore = () => {
   const sneakers = data.sneakers;

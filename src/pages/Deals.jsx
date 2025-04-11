@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "../components/Card";
-import { products } from "../assets/data";
+import data from "../assets/data";
 
 const Deals = () => {
   // Simulate deals by adding a random discount to each product
-  const dealsProducts = products.map(product => ({
+  const dealsProducts = data.products.map(product => ({
     ...product,
     original_price: product.price_cents,
     price_cents: Math.floor(product.price_cents * (1 - Math.random() * 0.3)), // Up to 30% off
