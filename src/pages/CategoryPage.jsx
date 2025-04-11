@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Card from "../components/Card";
-import { products } from "../assets/data";
+import data from "../assets/data";
 import { BiChip, BiMemoryCard, BiDesktop } from "react-icons/bi";
 import { BsMotherboard, BsLightningCharge } from "react-icons/bs";
 import { CgSmartphoneRam } from "react-icons/cg";
@@ -46,7 +46,7 @@ const CategoryPage = () => {
   };
 
   useEffect(() => {
-    let filtered = products.filter((product) => 
+    let filtered = data.products.filter((product) => 
       product.category.toLowerCase() === category.toLowerCase()
     );
 
