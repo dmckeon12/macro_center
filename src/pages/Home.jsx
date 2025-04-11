@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
-import { products } from "../assets/data";
+import { data } from "../assets/data";
 import { BiChip, BiMemoryCard, BiDesktop } from "react-icons/bi";
 import { BsMotherboard, BsLightningCharge } from "react-icons/bs";
 import { CgSmartphoneRam } from "react-icons/cg";
@@ -16,7 +16,7 @@ const Home = () => {
     { name: "Power Supplies", icon: BsLightningCharge, path: "/category/psu" },
   ];
 
-  const featuredProducts = products.slice(0, 4);
+  const featuredProducts = data.products;
 
   return (
     <div className="container mx-auto px-4 py-8">
