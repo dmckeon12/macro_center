@@ -18,11 +18,12 @@ const Cart = () => {
     );
   }, [cart]);
 
-  const checkout = () => {
-    toast.success("Order Placed Successfully");
-    localStorage.removeItem("localCart");
-    dispatch(checkoutCart());
-    navigate("/");
+  const proceedToCheckout = () => {
+    if (cart.length === 0) {
+      toast.error("Your cart is empty");
+      return;
+    }
+    navigate("/checkout");
   };
 
   if (cart.length === 0) {
@@ -85,7 +86,7 @@ const Cart = () => {
             </div>
 
             <button
-              onClick={checkout}
+              onClick={proceedToCheckout}
               className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
               Proceed to Checkout
