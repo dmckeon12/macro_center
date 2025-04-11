@@ -68,7 +68,11 @@ const PCBuilder = () => {
   const calculateTotal = () => {
     return Object.values(build)
       .filter(item => item)
-      .reduce((total, item) => total + item.price_cents, 0);
+      .reduce((total, item) => {
+        // Ensure price_cents is a valid number
+        const price = typeof item.price_cents === 'number' ? item.price_cents : 0;
+        return total + price;
+      }, 0);
   };
 
   const removePart = (category) => {
@@ -148,9 +152,13 @@ const PCBuilder = () => {
     
     // Add each part to the cart with quantity property
     parts.forEach(part => {
-      // Add qty property required by cart
-      const itemWithQty = { ...part, qty: 1 };
-      dispatch(addToCart(itemWithQty));
+      // Ensure price_cents is a valid number
+      const validPart = {
+        ...part,
+        price_cents: typeof part.price_cents === 'number' ? part.price_cents : 0,
+        qty: 1
+      };
+      dispatch(addToCart(validPart));
     });
     
     toast.success(`${parts.length} items added to cart`);
@@ -254,7 +262,7 @@ const PCBuilder = () => {
                       <div>
                         <h3 className="font-medium dark:text-white">{selectedPart.name}</h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                          ${(selectedPart.price_cents / 100).toLocaleString()}
+                          ${((selectedPart.price_cents || 0) / 100).toFixed(2)}
                         </p>
                       </div>
                     </div>
@@ -283,7 +291,7 @@ const PCBuilder = () => {
                     {categories[category].name}
                   </span>
                   <span className="dark:text-white">
-                    {part ? `$${(part.price_cents / 100).toLocaleString()}` : "—"}
+                    {part ? `$${((part.price_cents || 0) / 100).toFixed(2)}` : "—"}
                   </span>
                 </div>
               ))}
@@ -291,7 +299,7 @@ const PCBuilder = () => {
               <div className="border-t pt-4 flex justify-between font-semibold">
                 <span className="dark:text-white">Total</span>
                 <span className="dark:text-white">
-                  ${(calculateTotal() / 100).toLocaleString()}
+                  ${(calculateTotal() / 100).toFixed(2)}
                 </span>
               </div>
             </div>
