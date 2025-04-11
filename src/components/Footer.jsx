@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="bg-gray-800 dark:bg-[#1f1b24] text-white py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -40,11 +40,11 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-l text-black"
+                className="flex-1 px-4 py-2 rounded-l text-black dark:text-white dark:bg-[#2a2a2a] dark:placeholder-gray-400"
               />
               <button
                 type="submit"
-                className="px-4 py-2 bg-blue-600 rounded-r hover:bg-blue-700"
+                className="px-4 py-2 bg-blue-600 dark:bg-blue-500 rounded-r hover:bg-blue-700 dark:hover:bg-blue-600"
               >
                 Subscribe
               </button>

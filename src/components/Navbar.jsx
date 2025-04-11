@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaTimes } from "react-icons/fa";
+import { FaShoppingCart, FaTimes, FaSun, FaMoon } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiChip } from "react-icons/bi";
@@ -10,6 +10,17 @@ const Navbar = () => {
   const cart = useSelector((state) => state.cart);
   const [click, setClick] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
+  const [darkMode, setDarkMode] = useState(localStorage.getItem('darkMode') === 'true');
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('darkMode', 'false');
+    }
+  }, [darkMode]);
 
   const mobile = () => {
     setClick(!click);
@@ -41,11 +52,11 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/" className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Home</Link>
             
             <div className="relative group">
               <button 
-                className="nav-link flex items-center gap-1"
+                className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1"
                 onMouseEnter={() => setShowCategories(true)}
                 onMouseLeave={() => setShowCategories(false)}
               >
@@ -70,10 +81,10 @@ const Navbar = () => {
               )}
             </div>
             
-            <Link to="/deals" className="nav-link">Deals</Link>
-            <Link to="/build" className="nav-link">PC Builder</Link>
+            <Link to="/deals" className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Deals</Link>
+            <Link to="/build" className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">PC Builder</Link>
             
-            <Link to="/cart" className="nav-link">
+            <Link to="/cart" className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
               <div className="relative">
                 <FaShoppingCart className="text-xl" />
                 {cart.length > 0 && (
@@ -83,6 +94,13 @@ const Navbar = () => {
                 )}
               </div>
             </Link>
+
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
+            >
+              {darkMode ? <FaSun className="text-xl" /> : <FaMoon className="text-xl" />}
+            </button>
           </nav>
 
           {/* Mobile Navigation */}
@@ -102,8 +120,8 @@ const Navbar = () => {
       {click && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-[#1f1b24] shadow-lg">
-            <Link to="/" className="mobile-nav-link">Home</Link>
-            <div className="mobile-nav-link">
+            <Link to="/" className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Home</Link>
+            <div className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
               <span className="block text-sm font-medium mb-2">Categories</span>
               <div className="pl-4 space-y-2">
                 {categories.map((category) => (
@@ -117,23 +135,16 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
-            <Link to="/deals" className="mobile-nav-link">Deals</Link>
-            <Link to="/build" className="mobile-nav-link">PC Builder</Link>
-            <Link to="/cart" className="mobile-nav-link">
+            <Link to="/deals" className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Deals</Link>
+            <Link to="/build" className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">PC Builder</Link>
+            <Link to="/cart" className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
               Cart {cart.length > 0 && `(${cart.length})`}
             </Link>
           </div>
         </div>
       )}
 
-      <style jsx>{`
-        .nav-link {
-          @apply text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400;
-        }
-        .mobile-nav-link {
-          @apply block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400;
-        }
-      `}</style>
+
     </div>
   );
 };
