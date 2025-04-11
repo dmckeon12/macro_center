@@ -31,7 +31,7 @@ const Home = () => {
           <div className="max-w-2xl mx-8">
             <h1 className="text-4xl font-bold mb-4">Build Your Dream PC</h1>
             <p className="text-lg mb-6">
-              High-performance computer parts at competitive prices. From CPUs to GPUs, we've got everything you need.
+              High-performance computer parts at competitive prices. From CPUs to Power Supplys, we've got everything you need.
             </p>
             <Link
               to="/build"
