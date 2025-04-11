@@ -4,6 +4,7 @@ import { FaShoppingCart, FaTimes } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiChip } from "react-icons/bi";
+import { logo } from "../assets/data";
 
 const Navbar = () => {
   const cart = useSelector((state) => state.cart);
@@ -29,6 +30,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2">
+              <img src={logo} alt="Macro Center" className="h-8" />
               <BiChip className="h-8 w-8 text-blue-600 dark:text-blue-400" />
               <span className="text-2xl font-bold text-gray-900 dark:text-white">
                 Macro

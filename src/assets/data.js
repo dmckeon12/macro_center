@@ -1,9 +1,12 @@
-// Import images
+// Import local images
 import logo from './images/logo.png';
 import heroBanner from './images/hero-banner.jpg';
 import ryzen7950x from './images/cpu-ryzen-7950x.jpg';
 import rtx4080 from './images/gpu-rtx-4080.jpg';
 import rogX670e from './images/mb-rog-x670e.jpg';
+
+// Export images
+export { logo, heroBanner };
 
 export const data = {
   healthcheck: {
