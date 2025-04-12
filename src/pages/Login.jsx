@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthForms from '../components/AuthForms';
-import Footer from '../components/Footer';
 
 const Login = () => {
   return (
@@ -18,7 +17,6 @@ const Login = () => {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
