@@ -1,3 +1,8 @@
+/**
+ * AuthForms -handles user authentication
+ * Provides login and registration and checks to comfirm
+ * Uses the AuthContext to confirm
+ */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';

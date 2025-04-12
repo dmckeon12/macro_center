@@ -1,3 +1,7 @@
+/**
+ * FilterComponent - side bar for filtering products in specific areas
+ * includes price range filtering as well as name and featured 
+ */
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 

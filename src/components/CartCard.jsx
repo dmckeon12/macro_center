@@ -1,3 +1,8 @@
+/**
+ * CartCard - Component for displaying items in the shopping cart
+ * Provides functionality for quantity adjustment and item removal
+ * Displays product image, details, price, and quantity controls
+ */
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";

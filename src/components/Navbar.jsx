@@ -1,3 +1,8 @@
+/**
+ * Navbar - used for navigation
+ * used for movement through cart, profile, and dark mode
+ * also used for catagories
+ */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaTimes, FaSun, FaMoon, FaUser, FaSignOutAlt } from "react-icons/fa";

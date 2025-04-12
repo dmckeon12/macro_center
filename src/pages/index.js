@@ -1,3 +1,7 @@
+/**
+ * Index - exports all pages
+ * makes it where import for each page is not required
+ */
 import Cart from "./Cart";
 import CategoryPage from "./CategoryPage";
 import Deals from "./Deals";

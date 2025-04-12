@@ -1,10 +1,12 @@
+/**
+ * ProtectedRoute - authorizes users
+ * moves unlogged in users to login screen
+ */
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-
 const ProtectedRoute = ({ children }) => {
   const { currentUser, loading } = useAuth();
-
   // Show loading state if auth is still being checked
   if (loading) {
     return (
@@ -13,13 +15,10 @@ const ProtectedRoute = ({ children }) => {
       </div>
     );
   }
-
   // Redirect to login if not authenticated
   if (!currentUser) {
     return <Navigate to="/login" />;
   }
-
-  // Render children if authenticated
   return children;
 };
 

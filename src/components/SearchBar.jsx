@@ -1,3 +1,7 @@
+/**
+ * SearchBar - Product search component
+ * currently not implemented 
+ */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';

@@ -1,3 +1,8 @@
+/**
+ * Card - card used for displaying products
+ * controlls the add to cart and remove from cart functions
+ * Used in product listing pages and posts product details with image that is stored in images folder
+ */
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../redux/slices/CartSlice";

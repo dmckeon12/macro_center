@@ -1,3 +1,8 @@
+/**
+ * CheckoutForm - processes orders after going to cart
+ * Collects shipping, contact, and payment information (does not check if payment is correct)
+ * Handles submission and placing of orders
+ */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';

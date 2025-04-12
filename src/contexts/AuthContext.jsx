@@ -1,3 +1,8 @@
+/**
+ * AuthContext - checks for previously logged in user
+ * keeps track of user login, registration, logout and order history
+ * Uses localStorage for persistent user authentication across sessions
+ */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
@@ -52,7 +57,6 @@ export const AuthProvider = ({ children }) => {
   // Login a user
   const login = (email, password) => {
     try {
-      // In a real app, you would validate credentials against an API
       // For this demo, we'll check if the email exists in localStorage
       const storedUser = localStorage.getItem('macroUser');
       console.log('Attempting login with email:', email);
@@ -61,7 +65,6 @@ export const AuthProvider = ({ children }) => {
       if (storedUser) {
         const user = JSON.parse(storedUser);
         if (user.email === email && user.password === password) {
-          // In a real app, you would compare password hashes
           console.log('Login successful');
           setCurrentUser(user);
           return user;
@@ -78,9 +81,6 @@ export const AuthProvider = ({ children }) => {
   // Logout the user
   const logout = () => {
     try {
-      // In a real app, you would also invalidate tokens on the server
-      // localStorage.removeItem('macroUser'); // Uncomment this for actual logout
-      // For demo purposes, we'll keep the user in localStorage but clear the current state
       setCurrentUser(null);
       console.log('User logged out');
     } catch (error) {
@@ -94,19 +94,12 @@ export const AuthProvider = ({ children }) => {
       if (!currentUser) {
         throw new Error('User not logged in');
       }
-
-      // Add the new order to the user's orders
       const updatedUser = {
         ...currentUser,
         orders: [...(currentUser.orders || []), orderData]
       };
-
-      // Update localStorage
       localStorage.setItem('macroUser', JSON.stringify(updatedUser));
-      
-      // Update current user state
       setCurrentUser(updatedUser);
-      
       return updatedUser;
     } catch (error) {
       console.error('Error adding order:', error);

@@ -1,3 +1,8 @@
+/**
+ * Footer - Website footer component with site navigation and newsletter signup
+ * Contains links to main sections, product categories, and support pages
+ * Displayed at the bottom of every page in the application
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 

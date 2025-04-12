@@ -1,3 +1,8 @@
+/**
+ * PreviewCard - displays product details
+ * handles images, specs, price, and add to cart
+ * Used on the product page to showcase product info
+ */
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/slices/CartSlice";
