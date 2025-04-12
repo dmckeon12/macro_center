@@ -5,7 +5,7 @@ import { checkoutCart } from "../redux/slices/CartSlice";
 import { useAuth } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 import { v4 as uuidv4 } from 'uuid';
-
+//Checkout: makes you add name, address, and payment after confirming cart contents
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import data from "../assets/data";
 import { BiChip, BiMemoryCard, BiDesktop } from "react-icons/bi";
 import { BsMotherboard, BsLightningCharge } from "react-icons/bs";
 import { CgSmartphoneRam } from "react-icons/cg";
-
+//Catagory Page: lets you select which catagory of comps you want to look at
 const CategoryPage = () => {
   const { category } = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);

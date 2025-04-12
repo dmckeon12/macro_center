@@ -7,7 +7,8 @@ import { CgSmartphoneRam } from "react-icons/cg";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/CartSlice";
 import toast from 'react-hot-toast';
-
+//PCBuilder: allows user to custom build a PC with each Component
+// all extra functions are explained in readme
 const PCBuilder = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -146,13 +147,9 @@ const PCBuilder = () => {
     });
   }, [build]);
   
-  // Add all components to cart
   const addAllToCart = () => {
     const parts = Object.values(build).filter(item => item);
-    
-    // Add each part to the cart with quantity property
     parts.forEach(part => {
-      // Ensure price_cents is a valid number
       const validPart = {
         ...part,
         price_cents: typeof part.price_cents === 'number' ? part.price_cents : 0,

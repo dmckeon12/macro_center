@@ -2,7 +2,7 @@ import React from "react";
 import PreviewCard from "../components/PreviewCard";
 import { useParams } from "react-router-dom";
 import data from "../assets/data";
-
+//Preview: allows for the option to preview a product with its info 
 const Preview = () => {
   const { id } = useParams();
   const productId = Number(id);

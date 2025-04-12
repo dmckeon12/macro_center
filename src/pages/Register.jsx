@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthForms from '../components/AuthForms';
-
+//Register: lets a user create an account if one is not present
 const Register = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">

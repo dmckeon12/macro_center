@@ -4,26 +4,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { checkoutCart } from "../redux/slices/CartSlice";
 import toast from "react-hot-toast";
-
+//Cart page: used to show cart items and creates a running total
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
   const [total, setTotal] = useState(0);
-  
   useEffect(() => {
     setTotal(
       cart.reduce((acc, curr) => {
-        // Ensure price_cents is a valid number
         const price = typeof curr.price_cents === 'number' ? curr.price_cents : 0;
-        // Ensure qty is a valid number
         const qty = typeof curr.qty === 'number' ? curr.qty : 1;
         return acc + (price * qty);
       }, 0)
     );
   }, [cart]);
-
   const proceedToCheckout = () => {
     if (cart.length === 0) {
       toast.error("Your cart is empty");
@@ -31,7 +26,6 @@ const Cart = () => {
     }
     navigate("/checkout");
   };
-
   if (cart.length === 0) {
     return (
       <div className="container mx-auto px-4 py-16">
@@ -60,7 +54,6 @@ const Cart = () => {
       </div>
     );
   }
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-8 dark:text-white">Shopping Cart</h1>
@@ -71,7 +64,6 @@ const Cart = () => {
             <CartCard key={item.id} item={item} />
           ))}
         </div>
-
         <div className="lg:w-80">
           <div className="bg-white dark:bg-[#1f1b24] rounded-lg shadow-sm p-6">
             <h2 className="text-lg font-semibold mb-4 dark:text-white">Order Summary</h2>
@@ -112,5 +104,4 @@ const Cart = () => {
     </div>
   );
 };
-
 export default Cart;

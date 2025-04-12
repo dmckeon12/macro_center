@@ -1,11 +1,9 @@
 import React from "react";
 import Card from "../components/Card";
 import data from "../assets/data";
-
+//Deals: Selects two components from each catagory to be on sale from 5 to 30 percent
 const Deals = () => {
-  // Simulate deals by adding a random discount to each product
   const productsWithDiscounts = data.products.map(product => {
-    // Generate a random discount between 5% and 30%
     const discountPercentage = Math.floor(Math.random() * 26) + 5; // 5 to 30%
     return {
       ...product,
@@ -14,10 +12,7 @@ const Deals = () => {
       discount_percentage: discountPercentage
     };
   });
-  
-  // Group products by category
   const productsByCategory = {};
-  
   productsWithDiscounts.forEach(product => {
     const category = product.category;
     if (!productsByCategory[category]) {
@@ -25,22 +20,15 @@ const Deals = () => {
     }
     productsByCategory[category].push(product);
   });
-  
-  // Get top 2 deals from each category
   const dealsProducts = [];
   
   Object.keys(productsByCategory).forEach(category => {
-    // Sort by discount percentage (highest first)
     const sortedCategoryProducts = productsByCategory[category]
       .sort((a, b) => b.discount_percentage - a.discount_percentage)
-      .slice(0, 2); // Take only the top 2
-    
+      .slice(0, 2);
     dealsProducts.push(...sortedCategoryProducts);
   });
-  
-  // Sort all deals by discount percentage for display
-  dealsProducts.sort((a, b) => b.discount_percentage - a.discount_percentage);
-
+  dealsProducts.sort((a, b) => b.discount_percentage - a.discount_percentage)
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}

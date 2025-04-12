@@ -2,29 +2,23 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
-
+//Profile: allows uer to see their profile and their previous orders
 const Profile = () => {
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
-  
-  // If no user found, redirect to login (should be handled by ProtectedRoute, but just in case)
   if (!currentUser) {
     navigate('/login');
     return null;
   }
-  
-  // Provide some default orders if none exist
   const user = {
     ...currentUser,
     orders: currentUser.orders || []
   };
-
   const handleLogout = () => {
     logout();
     toast.success('Successfully logged out');
     navigate('/login');
   };
-
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <div className="flex-grow container mx-auto px-4 py-8">
@@ -75,5 +69,4 @@ const Profile = () => {
     </div>
   );
 };
-
 export default Profile;

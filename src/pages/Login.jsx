@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthForms from '../components/AuthForms';
-
+//Login: login page used to let existing users login with their account
 const Login = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -20,5 +20,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

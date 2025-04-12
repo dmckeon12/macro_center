@@ -5,7 +5,7 @@ import data from "../assets/data"; // Fixing import statement
 import { BiChip, BiMemoryCard, BiDesktop } from "react-icons/bi";
 import { BsMotherboard, BsLightningCharge } from "react-icons/bs";
 import { CgSmartphoneRam } from "react-icons/cg";
-
+//Home: home page for main area of website. allows for pathing to all other pages
 const Home = () => {
   const categories = [
     { name: "CPUs", icon: BiChip, path: "/category/cpu" },
@@ -42,7 +42,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* Categories Section */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 dark:text-white">Shop by Category</h2>
@@ -81,7 +80,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-
       {/* Deals Section */}
       <section className="mb-12">
         <div className="bg-gray-50 dark:bg-[#2a2a2a] rounded-2xl p-8">
@@ -114,7 +112,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* PC Builder CTA */}
       <section>
         <div className="bg-gray-900 dark:bg-[#121015] rounded-2xl p-8 text-white">
@@ -136,5 +133,4 @@ const Home = () => {
     </div>
   );
 };
-
 export default Home;

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaCheckCircle } from 'react-icons/fa';
-
+//OrderConfirmation: Gives user an order number after giving need info
 const OrderConfirmation = () => {
-  // Generate a random order number
   const orderNumber = Math.floor(100000 + Math.random() * 900000);
   
   return (

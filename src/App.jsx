@@ -9,11 +9,10 @@ import Profile from "./pages/Profile";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import ProtectedRoute from "./components/ProtectedRoute";
-
+//App: lets user go from page to page
 const App = () => {
   useEffect(() => {
-    console.log("App component mounted"); // Log when App component mounts
-    // Add dark mode class if it's saved in localStorage
+    console.log("App component mounted"); 
     if (localStorage.getItem('darkMode') === 'true') {
       document.documentElement.classList.add('dark');
     }
