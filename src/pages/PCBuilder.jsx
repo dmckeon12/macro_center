@@ -7,6 +7,7 @@ import { CgSmartphoneRam } from "react-icons/cg";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/CartSlice";
 import toast from 'react-hot-toast';
+import ProductRecommendation from "../components/ProductRecommendation";
 //PCBuilder: allows user to custom build a PC with each Component
 // all extra functions are explained in readme
 const PCBuilder = () => {
@@ -172,20 +173,20 @@ const PCBuilder = () => {
         
         {/* Build Performance Metrics */}
         {Object.values(build).some(item => item) && (
-          <div className="mt-6 p-4 bg-white dark:bg-[#1f1b24] rounded-lg shadow-sm">
-            <h2 className="text-lg font-semibold mb-3 dark:text-white">Build Metrics</h2>
-            
-            <div className="flex flex-wrap gap-4">
+          <div className="p-6 bg-white dark:bg-[#1f1b24] rounded-lg shadow mb-8" data-testid="performance-metrics">
+            <h2 className="text-2xl font-bold mb-6 dark:text-white">Performance</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               {/* Performance Score */}
               <div className="flex-1 min-w-[200px]">
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Performance</p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div 
-                    className={`h-2.5 rounded-full ${buildMetrics.performance > 70 ? 'bg-green-600' : buildMetrics.performance > 40 ? 'bg-yellow-400' : 'bg-red-600'}`}
-                    style={{ width: `${buildMetrics.performance}%` }}
-                  ></div>
+                <div>
+                  <span className="block text-gray-500 dark:text-gray-400 text-sm mb-2" data-testid="gaming-performance">Gaming Performance</span>
+                  <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full">
+                    <div 
+                      className={`h-2.5 rounded-full ${buildMetrics.performance > 70 ? 'bg-green-600' : buildMetrics.performance > 40 ? 'bg-yellow-400' : 'bg-red-600'}`}
+                      style={{ width: `${buildMetrics.performance}%` }}
+                    ></div>
+                  </div>
                 </div>
-                <p className="text-xs text-right mt-1 dark:text-gray-300">{buildMetrics.performance}%</p>
               </div>
               
               {/* Estimated Wattage */}
@@ -193,26 +194,34 @@ const PCBuilder = () => {
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Estimated Wattage</p>
                 <p className="font-semibold dark:text-white">{buildMetrics.wattage} W</p>
               </div>
-              
-              {/* Compatibility Status */}
-              <div className="flex-1 min-w-[200px]">
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Compatibility</p>
-                <p className={`font-semibold ${buildMetrics.compatibility ? 'text-green-600' : 'text-red-600'}`}>
-                  {buildMetrics.compatibility ? 'Compatible ✓' : 'Issues Detected!'}
-                </p>
-              </div>
             </div>
             
-            {/* Compatibility Issues */}
-            {buildMetrics.compatibilityIssues.length > 0 && (
-              <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-sm font-medium text-red-600 mb-1">Compatibility Issues:</p>
-                <ul className="list-disc pl-5 text-sm text-red-500">
-                  {buildMetrics.compatibilityIssues.map((issue, index) => (
-                    <li key={index}>{issue}</li>
-                  ))}
-                </ul>
+            {/* Compatibility Status */}
+            <div className="bg-white dark:bg-[#1f1b24] p-6 rounded-lg shadow">
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">Compatibility Status</h2>
+              
+              {/* Show compatibility status */}
+              <div 
+                className={`p-4 rounded-md mb-6 ${buildMetrics.compatibility 
+                  ? 'bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200' 
+                  : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200'}`}
+                data-testid="compatibility-status"
+              >
+                <div className="flex items-center">
+                  <div className={`w-3 h-3 rounded-full mr-2 ${buildMetrics.compatibility ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                  <p className="font-medium">
+                    {buildMetrics.compatibility ? 'Compatible' : 'Incompatible'}
+                  </p>
+                </div>
               </div>
+              
+              {/* Compatibility Issues */}
+              {buildMetrics.compatibilityIssues.map((issue, index) => (
+                <div key={index} className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded p-3 mb-2" data-testid="compatibility-warning">
+                  <p className="text-sm text-red-700 dark:text-red-200">{issue}</p>
+                </div>
+              ))}
+            </div>
             )}
           </div>
         )}
@@ -327,6 +336,63 @@ const PCBuilder = () => {
             </div>
             
             <div className="flex-1 overflow-y-auto p-4">
+              {/* Show recommendations based on current build */}
+              {build.cpu && currentCategory === 'motherboard' && (
+                <div className="mb-6" data-testid="motherboard-recommendations">
+                  <h3 className="text-lg font-semibold mb-4 text-green-600">Recommended for your CPU</h3>
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6">
+                    <p className="text-sm">These motherboards are compatible with your {build.cpu.name} CPU (Socket: {build.cpu.specs?.socket})</p>
+                  </div>
+                </div>
+              )}
+              
+              {build.motherboard && currentCategory === 'ram' && (
+                <div className="mb-6" data-testid="ram-recommendations">
+                  <h3 className="text-lg font-semibold mb-4 text-green-600">Recommended for your Motherboard</h3>
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6">
+                    <p className="text-sm">These memory modules are compatible with your {build.motherboard.name} motherboard</p>
+                  </div>
+                </div>
+              )}
+              
+              {build.cpu && currentCategory === 'gpu' && (
+                <div className="mb-6" data-testid="gpu-recommendations">
+                  <h3 className="text-lg font-semibold mb-4 text-green-600">Recommended Graphics Cards</h3>
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6">
+                    <p className="text-sm">These GPUs are balanced performance matches for your {build.cpu.name} CPU</p>
+                  </div>
+                </div>
+              )}
+              
+              {/* If we have a CPU, motherboard, or GPU selected, show recommendations */}
+              {((build.cpu && currentCategory === 'motherboard') || 
+                (build.motherboard && currentCategory === 'ram') || 
+                (build.cpu && currentCategory === 'gpu')) && (
+                <div className="mb-6">
+                  {build.cpu && currentCategory === 'motherboard' && (
+                    <ProductRecommendation 
+                      productId={build.cpu.id} 
+                      category="cpu" 
+                      relatedCategory="motherboard" 
+                    />
+                  )}
+                  {build.motherboard && currentCategory === 'ram' && (
+                    <ProductRecommendation 
+                      productId={build.motherboard.id} 
+                      category="motherboard" 
+                      relatedCategory="ram" 
+                    />
+                  )}
+                  {build.cpu && currentCategory === 'gpu' && (
+                    <ProductRecommendation 
+                      productId={build.cpu.id} 
+                      category="cpu" 
+                      relatedCategory="gpu" 
+                    />
+                  )}
+                </div>
+              )}
+              
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {data.products
                   .filter(product => product.category.toLowerCase() === currentCategory)

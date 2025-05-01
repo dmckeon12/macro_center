@@ -6,6 +6,7 @@ import { Cart, CategoryPage, Deals, Explore, Home, PCBuilder, Preview } from "./
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/explore" element={<Explore />} />
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
             <Route path="/preview/:id" element={<Preview />} />
+            <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/build" element={<PCBuilder />} />

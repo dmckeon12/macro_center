@@ -1,0 +1,50 @@
+{
+  "pc_components": {
+    "cpu": {
+      "id": 1,
+      "name": "Ryzen 9 7950X",
+      "price_cents": 69900
+    },
+    "gpu": {
+      "id": 11,
+      "name": "GeForce RTX 4080",
+      "price_cents": 119900
+    },
+    "motherboard": {
+      "id": 21,
+      "name": "ROG Strix X670E-E Gaming WiFi",
+      "price_cents": 49900
+    },
+    "ram": {
+      "id": 31,
+      "name": "Vengeance RGB Pro",
+      "price_cents": 11900
+    },
+    "storage": {
+      "id": 41,
+      "name": "Samsung 980 PRO",
+      "price_cents": 14900
+    },
+    "psu": {
+      "id": 51,
+      "name": "Corsair RM850x",
+      "price_cents": 13900
+    }
+  },
+  "compatible_build": {
+    "cpu": 4,
+    "motherboard": 27,
+    "ram": 37,
+    "gpu": 13,
+    "storage": 43,
+    "psu": 53
+  },
+  "incompatible_build": {
+    "cpu": 1,
+    "motherboard": 24,
+    "ram": 31,
+    "gpu": 11,
+    "storage": 41,
+    "psu": 51
+  }
+}
