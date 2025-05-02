@@ -1,8 +1,39 @@
 import httpStatus from 'http-status';
-import Product from '../models/product.model.js';
-import { ApiError } from '../middleware/error.middleware.js';
-import { validateObjectId } from '../utils/custom-validators.js';
-import { paginateResponse } from '../utils/helpers.js';
+import { Product } from '../models/index.js';
+import ApiError from '../utils/ApiError.js';
+import catchAsync from '../utils/catchAsync.js';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+// Setup for fallback mode
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+let mockData = null;
+
+// Load mock data function
+const loadMockData = async () => {
+  try {
+    // In fallback mode, try to load product data from a file
+    // This is relative to the server code structure
+    const frontendDataPath = path.join(__dirname, '../../../src/assets/data.js');
+    
+    // Check if data.js exists
+    if (fs.existsSync(frontendDataPath)) {
+      console.log('Using frontend data for fallback mode');
+      // Import frontend data dynamically
+      const module = await import('file://' + frontendDataPath);
+      mockData = module.default || module;
+      return mockData.products || [];
+    } else {
+      console.log('Frontend data not found, using empty array');
+      return [];
+    }
+  } catch (error) {
+    console.error('Error loading mock data:', error);
+    return [];
+  }
+};
 
 /**
  * Create a new product

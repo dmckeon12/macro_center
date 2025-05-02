@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/slices/CartSlice';
-import { productApi } from '../api';
+import { getRecommendations, getRecommendationsFallback } from '../api';
 
 const ProductRecommendation = ({ productId, category, relatedCategory }) => {
   const [recommendations, setRecommendations] = useState([]);
@@ -23,7 +23,7 @@ const ProductRecommendation = ({ productId, category, relatedCategory }) => {
     setLoading(true);
     try {
       // Try to get recommendations from API
-      const response = await productApi.getRecommendations(productId, category, relatedCategory);
+      const response = await getRecommendations(productId, category, relatedCategory);
       setRecommendations(response.data);
       setError(null);
     } catch (err) {
@@ -32,7 +32,7 @@ const ProductRecommendation = ({ productId, category, relatedCategory }) => {
       
       // Fallback to local data if API fails
       try {
-        const fallbackRecommendations = await productApi.getRecommendationsFallback(productId, category, relatedCategory);
+        const fallbackRecommendations = await getRecommendationsFallback(productId, category, relatedCategory);
         if (fallbackRecommendations && fallbackRecommendations.length > 0) {
           setRecommendations(fallbackRecommendations);
           setError(null);

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/slices/CartSlice';
 import toast from 'react-hot-toast';
-import { productApi } from '../api';
+import { getProductById } from '../api';
 import ProductRecommendation from '../components/ProductRecommendation';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { BiCheckCircle, BiXCircle } from 'react-icons/bi';
@@ -22,7 +22,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       setLoading(true);
       try {
-        const productData = await productApi.getProductById(productId);
+        const productData = await getProductById(productId);
         setProduct(productData);
       } catch (err) {
         console.error('Error fetching product:', err);
